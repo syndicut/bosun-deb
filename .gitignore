@@ -1,0 +1,10 @@
+*.pyc
+.vagrant
+
+tmp/*
+!tmp/.gitkeep
+debian/files
+debian/bosun
+debian/*.debhelper.log
+debian/*.substvars
+debian/*.debhelper

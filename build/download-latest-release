@@ -1,0 +1,26 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+#
+# Script to generate changelog from github releases page. You can specify release
+# for which to generate changelog, by default uses the latest stable release
+#
+# Usage:
+# build/generate-changelog <release-tag-name>
+
+from agithub import Github
+import urllib
+gh = Github()
+
+SRC_FILENAME = 'bosun-linux-amd64'
+DEST_FILENAME = './tmp/bosun'
+
+with open('debian/changelog', 'r') as f:
+    first_line = f.readline()
+
+latest_release_tag = first_line.split(' ')[1].strip('()')
+print 'Searching for release with tag_name: {0}'.format(latest_release_tag)
+status_code, latest_release = gh.repos['bosun-monitor']['bosun'].releases.tags[latest_release_tag].get()
+for asset in latest_release['assets']:
+    if asset['name'] == SRC_FILENAME:
+        print 'Downloading latest release from {0} to {1}'.format(asset['browser_download_url'], DEST_FILENAME)
+        urllib.urlretrieve(asset['browser_download_url'], DEST_FILENAME)

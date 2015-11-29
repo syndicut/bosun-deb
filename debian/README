@@ -1,0 +1,16 @@
+bosun
+=====
+
+The Debian Package bosun
+----------------------------
+
+Installs pre-build binary from github repo and minimal config with upstart job
+
+Building
+========
+Just run ```debuild``` in package directory, it will download binary for the release
+mentioned in debian/changelog from github and build a package.
+
+Updating
+========
+Just run ```make update``` and it will update changelog from the releases page (if you want, you can specify particular release by calling ./build/generate-changelog <tag_name>)

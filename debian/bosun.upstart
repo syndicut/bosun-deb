@@ -1,0 +1,12 @@
+# bosun - Running bosun monitoring daemon
+#
+# Start bosun with /etc/bosun/bosun.conf config
+
+description   "Bosun monitoring daemon"
+
+start on runlevel [45]
+stop on runlevel [!2345]
+
+respawn
+
+exec /usr/bin/bosun -c /etc/bosun/bosun.conf

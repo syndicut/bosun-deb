@@ -1,0 +1,62 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+#
+# Script to generate changelog from github releases page. You can specify release
+# for which to generate changelog, by default uses the latest stable release
+#
+# Usage:
+# build/generate-changelog <release-tag-name>
+
+from agithub import Github
+from distutils.version import LooseVersion
+import time
+import sys
+
+def indent(lines, amount, ch=' '):
+    padding = amount * ch
+    return padding + ('\n'+padding).join(lines.rstrip().split('\n'))
+
+DISTRIBUTION = 'unstable'
+URGENCY = 'low'
+BOSUN_ORG = 'bosun-monitor'
+BOSUN_REPO = 'bosun'
+
+def bosun_repo():
+    return gh.repos[BOSUN_ORG][BOSUN_REPO]
+
+gh = Github()
+if len(sys.argv) == 2:
+    release_version = sys.argv[1]
+else:
+    status_code, latest_release = bosun_repo().releases.latest.get()
+    release_version = latest_release['tag_name']
+status_code, releases = bosun_repo().releases.get()
+content = ''
+info = {}
+for release in releases:
+    if LooseVersion(release['tag_name']) <= LooseVersion(release_version):
+        author_login = release['author']['login']
+        status_code, author = gh.users[author_login].get()
+        local_tz = time.strftime("%z", time.localtime())
+        release_time = time.strptime(release['published_at'], '%Y-%m-%dT%H:%M:%SZ')
+        release_time_formatted = time.strftime("%a, %d %b %Y %H:%M:%S {0}".format(local_tz), release_time)
+        info['package_name'] = 'bosun'
+        info['package_version'] = release['tag_name']
+        info['distribution'] = DISTRIBUTION
+        info['urgency'] = URGENCY
+        info['body'] = indent(release['body'], 2)
+        info['author_name'] = author['name']
+        info['author_email'] = author['email']
+        info['release_time'] = release_time_formatted
+        template = """%(package_name)s (%(package_version)s) %(distribution)s; urgency=%(urgency)s
+
+%(body)s
+
+ -- %(author_name)s <%(author_email)s>  %(release_time)s
+
+"""
+        content = content + template % info
+
+with open('debian/changelog', 'w') as f:
+    f.write(content.encode('utf-8'))
+    f.flush()

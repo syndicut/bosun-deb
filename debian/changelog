@@ -1,0 +1,213 @@
+bosun (0.4.0) unstable; urgency=low
+
+  
+  ### bosun: ###
+    -  InfluxDB query support [#1291](https://github.com/bosun-monitor/bosun/pull/1291)
+    -  Concurrent checks [#1231](https://github.com/bosun-monitor/bosun/pull/1231)
+    -  Better Error flow [#1301](https://github.com/bosun-monitor/bosun/pull/1301)
+    -  Seperating core metric metadata into different lookup for performance [#1323](https://github.com/bosun-monitor/bosun/pull/1323)
+    -  Add last API route returns most recent datapoint for metriâ¦ [#1330](https://github.com/bosun-monitor/bosun/pull/1330)
+    -  Remove metrics from the API host route [#1318](https://github.com/bosun-monitor/bosun/pull/1318)
+    -  Don't return hosts from /api/host if older than 7 days [#1320](https://github.com/bosun-monitor/bosun/pull/1320)
+    -  Don't let unknowns trigger until a full check interval after restorestate finishes. [#1313](https://github.com/bosun-monitor/bosun/pull/1313)
+    -  Only giving the dashboard the most recent action. [#1279](https://github.com/bosun-monitor/bosun/pull/1279)
+    -  Retrying tsdb requests up to 3 times. [#1300](https://github.com/bosun-monitor/bosun/pull/1300)
+    -  allowing variables on expression page. [#1283](https://github.com/bosun-monitor/bosun/pull/1283)
+    -  Button to download config to local machine [#1164](https://github.com/bosun-monitor/bosun/pull/1164)
+    -  Able to clear silences again. [#1275](https://github.com/bosun-monitor/bosun/pull/1275)
+    -  Going to action page at no point uses url to transmit alert keys. [#1273](https://github.com/bosun-monitor/bosun/pull/1273)
+    -  Fix slowness loading dashboard. [#1170](https://github.com/bosun-monitor/bosun/pull/1170)
+    -  Fixing rule link from dashboard. [#1169](https://github.com/bosun-monitor/bosun/pull/1169)
+    -  recovering from panic in chart rendering. [#1237](https://github.com/bosun-monitor/bosun/pull/1237)
+    -  Add an API route to return all metrics and their associateâ¦ [#1247](https://github.com/bosun-monitor/bosun/pull/1247)
+    -  Add normalize switch to graph page to display series on 0-â¦ [#1257](https://github.com/bosun-monitor/bosun/pull/1257)
+    -  Sending less data to dashboard. Lazily loading templates [#1269](https://github.com/bosun-monitor/bosun/pull/1269)
+    -  cCount func counts the number of adjacent changes in a series [#1268](https://github.com/bosun-monitor/bosun/pull/1268)
+    -  Export time.ParseDuration as ParseDuration to templates [#1205](https://github.com/bosun-monitor/bosun/pull/1205)
+    -  reducing save frequency to 10 minutes. [#1222](https://github.com/bosun-monitor/bosun/pull/1222)
+    -  adding debug endpoint to view status of schedule lock. [#1220](https://github.com/bosun-monitor/bosun/pull/1220)
+    -  capturing timings around template rendering. [#1196](https://github.com/bosun-monitor/bosun/pull/1196)
+    -  Refactor filter expr func to also filter out zero valued results [#1206](https://github.com/bosun-monitor/bosun/pull/1206)
+    -  Only downsample OpenTSBD queries that don't have it specifâ¦ [#1201](https://github.com/bosun-monitor/bosun/pull/1201)
+    -  Fix template functions to use the same time as the alert [#1199](https://github.com/bosun-monitor/bosun/pull/1199)
+    -  making save rely on fewer goroutines needing to acquire the lock. [#1187](https://github.com/bosun-monitor/bosun/pull/1187)
+    -  promote scalars to numberSets [#1137](https://github.com/bosun-monitor/bosun/pull/1137)
+    -  Validating user and message on action. Requiring message to send notifications. [#1167](https://github.com/bosun-monitor/bosun/pull/1167)
+    -  support / in lookup sections [#1297](https://github.com/bosun-monitor/bosun/pull/1297)
+  
+  ### scollector: ###
+    -  Move metadata command collection to scollector [#1317](https://github.com/bosun-monitor/bosun/pull/1317)
+    -  count running linux processes from linux.proc collector [#1316](https://github.com/bosun-monitor/bosun/pull/1316)
+    -  dfstat skip pseudo filesystems [#1311](https://github.com/bosun-monitor/bosun/pull/1311)
+    -  Send a hi metric with a value of 1 [#1319](https://github.com/bosun-monitor/bosun/pull/1319)
+    -  Get OS Version in CentOS 7 [#1322](https://github.com/bosun-monitor/bosun/pull/1322)
+    -  Monitoring teams interfaces [#1280](https://github.com/bosun-monitor/bosun/pull/1280)
+    -  send self metrics with tags from config [#1303](https://github.com/bosun-monitor/bosun/pull/1303)
+    -  Propagate FullHost setting [#1296](https://github.com/bosun-monitor/bosun/pull/1296)
+    -  github collector [#1281](https://github.com/bosun-monitor/bosun/pull/1281)
+    -  Add MTU, AdminStatus, and OperationStatus to SNMP intâ¦ [#1260](https://github.com/bosun-monitor/bosun/pull/1260)
+    -  RabbitMQ [#1202](https://github.com/bosun-monitor/bosun/pull/1202)
+    -  Add metadata for SNMP network interface stats [#1251](https://github.com/bosun-monitor/bosun/pull/1251)
+    -  Filter out elastic indices from monitoring via regexp [#1243](https://github.com/bosun-monitor/bosun/pull/1243)
+    -  Identify the interface type via IF-MIB:ifType [#1242](https://github.com/bosun-monitor/bosun/pull/1242)
+    -  use dmidecode to get serialNumber and model metadata â¦ [#1223](https://github.com/bosun-monitor/bosun/pull/1223)
+    -  Add additional Linux interfaces [#1124](https://github.com/bosun-monitor/bosun/pull/1124)
+    -  riak allow custom URL [#1204](https://github.com/bosun-monitor/bosun/pull/1204)
+    -  enable pprof = "ip:port" settings in TOML file [#1190](https://github.com/bosun-monitor/bosun/pull/1190)
+    -  fix missing call to AddProcessDotNetConfig [#1159](https://github.com/bosun-monitor/bosun/pull/1159)
+    -  Allowing multipart snmp keys in subtrees. [#1271](https://github.com/bosun-monitor/bosun/pull/1271)
+  
+    ### tsdbrelay: ###
+    -  support for secondary relays for cross-datacenter mirroring. [#1210](https://github.com/bosun-monitor/bosun/pull/1210)
+      
+  ### travis: ###
+    - Running all platform builds in travis [#1288](https://github.com/bosun-monitor/bosun/pull/1288)
+    -  pin Typescript to version 1.5.3 [#1307](https://github.com/bosun-monitor/bosun/pull/1307)
+  
+  ### docs: ###
+    -  add resource page and update Bosun.org site [#1272](https://github.com/bosun-monitor/bosun/pull/1272)
+    -  fix slack notification [#1233](https://github.com/bosun-monitor/bosun/pull/1233)
+    -  Clarify that scollector supports TLS and HTTP Basic Auth.  [#1215](https://github.com/bosun-monitor/bosun/pull/1215)
+    -  Adding missing documentation [#1182](https://github.com/bosun-monitor/bosun/pull/1182)
+  
+  ### collect: ###
+    -  instrumenting some basic gc stats [#1267](https://github.com/bosun-monitor/bosun/pull/1267)
+    -  Add total_bytes and sample batchsize. Fixes #1184 [#1185](https://github.com/bosun-monitor/bosun/pull/1185)
+  
+  ### other: ###
+    - Using slog everywhere instead of log. [#1274](https://github.com/bosun-monitor/bosun/pull/1274)
+    - Adding header to identify bosun host on all outgoing http requests. [#1266](https://github.com/bosun-monitor/bosun/pull/1266)
+    - Add User-Agent to HTTP notifications [#1265](https://github.com/bosun-monitor/bosun/pull/1265)
+    - Update logstashElasticHosts format [#1259](https://github.com/bosun-monitor/bosun/pull/1259)
+    - Snmp tester [#1144](https://github.com/bosun-monitor/bosun/pull/1144)
+    - Change Elasticsearch backend configuration key [#1246](https://github.com/bosun-monitor/bosun/pull/1246)
+    - Add jsonq which allows JSON object handling in templates [#1176](https://github.com/bosun-monitor/bosun/pull/1176)
+    - updating dependencies [#1240](https://github.com/bosun-monitor/bosun/pull/1240)
+    - fix duplicate key errors for graphiteHeader [#1234](https://github.com/bosun-monitor/bosun/pull/1234)
+    - support configuring misc http headers for Graphite requests [#1221](https://github.com/bosun-monitor/bosun/pull/1221)
+    - Always refer to docker-server-ip in the same way [#1218](https://github.com/bosun-monitor/bosun/pull/1218)
+    - a command line utility for silencing [#1152](https://github.com/bosun-monitor/bosun/pull/1152)
+    - making save run on a fixed clock [#1192](https://github.com/bosun-monitor/bosun/pull/1192)
+    - Return a NaN value instead of an error when the result is of zero lenâ¦ [#1171](https://github.com/bosun-monitor/bosun/pull/1171)
+    - Fixed a typo in haproxy metric description [#1166](https://github.com/bosun-monitor/bosun/pull/1166)
+    - Fixed typo in configuration.md [#1162](https://github.com/bosun-monitor/bosun/pull/1162)
+    - removing solaris stuff [#1155](https://github.com/bosun-monitor/bosun/pull/1155)
+
+ -- Craig Peterson <peterson.craig@gmail.com>  Fri, 18 Sep 2015 14:58:33 +0000
+
+bosun (0.3.0) unstable; urgency=low
+
+  
+  ### bosun: ###
+    -  improve graph tag display [#1145](https://github.com/bosun-monitor/bosun/pull/1145)
+    -  implementing modulo operator % [#1154](https://github.com/bosun-monitor/bosun/pull/1154)
+    -  update interval on duration change [#1146](https://github.com/bosun-monitor/bosun/pull/1146)
+    -  Add dropl and dropg [#1143](https://github.com/bosun-monitor/bosun/pull/1143)
+    -  Exposing version information via api/version [#1134](https://github.com/bosun-monitor/bosun/pull/1134)
+    -  shorten the action page URLs [#1126](https://github.com/bosun-monitor/bosun/pull/1126)
+    -  fix relative time graph expression links [#1118](https://github.com/bosun-monitor/bosun/pull/1118)
+    -  download entire alerts dashboard at once [#1112](https://github.com/bosun-monitor/bosun/pull/1112)
+    -  convert absolute to relative times for graph exprs [#1105](https://github.com/bosun-monitor/bosun/pull/1105)
+    -  add pct template function [#1083](https://github.com/bosun-monitor/bosun/pull/1083)
+    - Improve silence page [#1111](https://github.com/bosun-monitor/bosun/pull/1111)
+    - Dashboard improvements [#1098](https://github.com/bosun-monitor/bosun/pull/1098)
+    - Graphite custom path [#1091](https://github.com/bosun-monitor/bosun/pull/1091)
+    - Concrete ls index name [#1013](https://github.com/bosun-monitor/bosun/pull/1013)
+    -  Adding instrumentation around schedule lock. [#1113](https://github.com/bosun-monitor/bosun/pull/1113)
+  
+  ### collect: ###
+    -  Instrument aggregation stats for http post timings [#1149](https://github.com/bosun-monitor/bosun/pull/1149)
+    -  Add aggregation support to collect [#1148](https://github.com/bosun-monitor/bosun/pull/1148)
+  
+  ### scollector: ###
+    -  scollector.* metrics disabled properly with DisableSelf [#1107](https://github.com/bosun-monitor/bosun/pull/1107)
+    -  Increase default batch size to 500 [#1129](https://github.com/bosun-monitor/bosun/pull/1129)
+    -  Add descriptions to httpunit metrics hu.* [#1127](https://github.com/bosun-monitor/bosun/pull/1127)
+    -  Order process identifiers by process creation timestamp. [#1110](https://github.com/bosun-monitor/bosun/pull/1110)
+    -  fix ICMP TOML converter [#1086](https://github.com/bosun-monitor/bosun/pull/1086)
+    -  WIP for DSC status [#1084](https://github.com/bosun-monitor/bosun/pull/1084)
+    -  implement os.net.pause_frames [#1090](https://github.com/bosun-monitor/bosun/pull/1090)
+    -  process_linux process start_time and uptime [#1087](https://github.com/bosun-monitor/bosun/pull/1087)
+    -  error on unused toml keys [#1080](https://github.com/bosun-monitor/bosun/pull/1080)
+    -  Replace external AD collector with built in collector [#1074](https://github.com/bosun-monitor/bosun/pull/1074)
+    -  More generic SNMP collector [#1089](https://github.com/bosun-monitor/bosun/pull/1089)
+    -  calculate os.net.bytes.total metric. [#1141](https://github.com/bosun-monitor/bosun/pull/1141)
+  
+  ### build: ###
+    -  making build status in github more granular [#1121](https://github.com/bosun-monitor/bosun/pull/1121)
+  
+  ### doc: ###
+    -  Add link to Monitorama 2015 presentation in the documentation. [#1108](https://github.com/bosun-monitor/bosun/pull/1108)
+    - Documenting function parameter types and returns [#1071](https://github.com/bosun-monitor/bosun/pull/1071)
+    -  expression language doc edits [#1128](https://github.com/bosun-monitor/bosun/pull/1128)
+  
+  ### bug: ###
+    -  timeline template not rendered correctly. [#1065](https://github.com/bosun-monitor/bosun/pull/1065)
+  
+  ### tsdbrelay: ###
+    -  denormalization backfill app [#1076](https://github.com/bosun-monitor/bosun/pull/1076)
+
+ -- Craig Peterson <peterson.craig@gmail.com>  Mon, 13 Jul 2015 16:07:53 +0000
+
+bosun (0.2.0) unstable; urgency=low
+
+  ## breaking changes since 0.1.0: ##
+  -  Change diff to be a reduction function [#1018](https://github.com/bosun-monitor/bosun/pull/1018): `diff("query","5m","")` must be changed to `diff(q("query","5m",""))`
+  
+  ### bosun: ###
+    -  window function [#1012](https://github.com/bosun-monitor/bosun/pull/1012)
+    -  validate config via POST [#1038](https://github.com/bosun-monitor/bosun/pull/1038)
+    -  Change diff to be a reduction function [#1018](https://github.com/bosun-monitor/bosun/pull/1018)
+    -  Allow alerts to run on different schedules [#993](https://github.com/bosun-monitor/bosun/pull/993)
+    -  Use proxy from environment variables [#1028](https://github.com/bosun-monitor/bosun/pull/1028)
+    -  Ability to throttle log notifications [#1032](https://github.com/bosun-monitor/bosun/pull/1032)
+  
+  ### scollector: ###
+    -  httpunit collector [#1044](https://github.com/bosun-monitor/bosun/pull/1044)
+    -  convert bools to 1/0 [#1056](https://github.com/bosun-monitor/bosun/pull/1056)
+    -  verify httpunit TLS fields are present [#1049](https://github.com/bosun-monitor/bosun/pull/1049)
+    -  add Hiera extraction to httpunit [#1051](https://github.com/bosun-monitor/bosun/pull/1051)
+    -  verify windows process name exists [#1046](https://github.com/bosun-monitor/bosun/pull/1046)
+  
+  ### docs: ###
+    -  fix relname display [#1041](https://github.com/bosun-monitor/bosun/pull/1041)
+    -  document missing route and functions [#1023](https://github.com/bosun-monitor/bosun/pull/1023)
+    -  Adding search link to upcoming features since last release. [#1034](https://github.com/bosun-monitor/bosun/pull/1034)
+    -  use correct scollector version name [#1029](https://github.com/bosun-monitor/bosun/pull/1029)
+    -  making release notes prettier [#1021](https://github.com/bosun-monitor/bosun/pull/1021)
+    -  Creating form for auto-inviting to slack [#1024](https://github.com/bosun-monitor/bosun/pull/1024)
+    -  use non-draft releases for scollector downloads [#1027](https://github.com/bosun-monitor/bosun/pull/1027)
+    -  making download page a little smarter and prettier [#1020](https://github.com/bosun-monitor/bosun/pull/1020)
+  
+  
+  ### build: ###
+    -  add scollector for solaris-amd64 [#1043](https://github.com/bosun-monitor/bosun/pull/1043)
+    -  various improvements [#1040](https://github.com/bosun-monitor/bosun/pull/1040)
+
+ -- Craig Peterson <peterson.craig@gmail.com>  Tue, 09 Jun 2015 20:41:16 +0000
+
+bosun (0.1.0) unstable; urgency=low
+
+  
+  
+  Our first versioned release. We will be following semver. This release contains breaking changes in scollector.
+  
+  ### bosun: ###
+  - make .Graph / .GraphAll link to the expr graph tab
+  - png/svg graph style changes
+  - move miniprofiler enable to a header
+  - inline css in emails
+  - API endpoint to backup state file
+  - template function to get incident link
+  - notifications on actions
+  
+  ### scollector (major breaking changes): ###
+  - move to TOML configuration file
+  - add os.net.bond.* and win.net.tcp.retransmit_pct
+  - updated to current Go AWS package
+  
+  ### documentation: ###
+  - merged into master bosun repo
+
+ -- Craig Peterson <peterson.craig@gmail.com>  Mon, 01 Jun 2015 20:56:55 +0000
+

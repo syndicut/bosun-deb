@@ -1,0 +1,16 @@
+Source: bosun
+Section: misc
+Priority: extra
+Maintainer: Rashit Azizbaev <syndicut@yandex-team.ru>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.2
+Homepage: https://bosun.org/
+Vcs-Git: git://github.com/syndicut/bosun.git
+Vcs-Browser: https://github.com/syndicut/bosun
+
+Package: bosun
+Architecture: amd64
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Time Series Alerting Framework
+ Bosun is a time series alerting framework developed by Stack Exchange. 
+ Learn more at bosun.org.
