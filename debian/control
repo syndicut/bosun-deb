@@ -5,8 +5,8 @@ Maintainer: Rashit Azizbaev <syndicut@yandex-team.ru>
 Build-Depends: debhelper (>= 8.0.0), python-simplejson
 Standards-Version: 3.9.2
 Homepage: https://bosun.org/
-Vcs-Git: git://github.com/syndicut/bosun.git
-Vcs-Browser: https://github.com/syndicut/bosun
+Vcs-Git: git://github.com/syndicut/bosun-deb.git
+Vcs-Browser: https://github.com/syndicut/bosun-deb
 
 Package: bosun
 Architecture: amd64
