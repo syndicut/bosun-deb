@@ -1,0 +1,2 @@
+script: yes | debuild -S
+before_script: sudo apt-get -y update && sudo apt-get -y install devscripts build-essential
