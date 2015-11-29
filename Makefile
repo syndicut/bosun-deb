@@ -11,3 +11,6 @@ update: generate-changelog
 
 clean:
 	rm -rf ./tmp/*
+
+release:
+	./build/release	

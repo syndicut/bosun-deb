@@ -1,0 +1,6 @@
+#!/bin/bash
+
+VERSION=$(awk 'NR==1 { gsub(/[()]/,"",$2); print $2 }' debian/changelog)
+COMMIT=$(git rev-parse --short HEAD)
+git tag ${VERSION}+${COMMIT}
+git push --tags
