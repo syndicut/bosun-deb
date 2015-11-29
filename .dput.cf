@@ -1,0 +1,6 @@
+[bosun-ppa-precise]
+fqdn = ppa.launchpad.net
+method = ftp
+incoming = ~syndicut/bosun/ppa/ubuntu/precise
+login = anonymous
+allow_unsigned_uploads = 0
