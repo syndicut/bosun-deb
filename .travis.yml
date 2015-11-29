@@ -2,9 +2,15 @@ before_script:
 - sudo apt-get -y update && sudo apt-get -y install devscripts build-essential equivs
 - sudo mk-build-deps -i
 - gpg --import $PPA_KEY_FILE
-script: yes | debuild -S -I -k$PPA_KEY_ID -p"gpg --passphrase $PPA_KEY_PASSWORD"
-after_success: debrelease -S --dput -c .dput.cf $PPA_NAME
+script: yes | debuild -I -k$PPA_KEY_ID -p"gpg --passphrase $PPA_KEY_PASSWORD"
 env:
   global:
-  - PPA_KEY_ID=F087E6F6 PPA_KEY_FILE=.travis/bosun-ppa.gpg PPA_NAME=bosun-ppa-precise
+  - PPA_KEY_ID=F087E6F6 PPA_KEY_FILE=.travis/bosun-ppa.gpg
   - secure: XLnWg2VXmbmlpFRP50TRW1CKMTw2agHvzKXfEzHoLMse8YnByfqQar/ttb9JWUjydICWfAhhxW4srfLHPMTlC7HiXWZbHQMSWHg54N6yl5i//7ONwG/9A9al+VFtmw5/hT2qmoX4bsYjQmw/XAtrB6fsPrOXSAsV6EQihJ4bcu0iK4jICKvi5YdNuXMfJmJkd7Vix+7KkK30cx7ZgV7wp5DRSi1HGjW35id4sBZxWYuRArLqfsaugAbgn3SMLej8gzc0HxZb9P1FQGA0yYtmhTfPc7r27NFz8QUnIXtj614fGTsHBk/sLJ9dNJU9XeGSWs9Qzrfktr1kbGZxc35kVXHYFTKtqp6YuLRurL8bZbDFDmIQuwiJq5L3UPGNXBO3cRXOQXcIKeCN8B6Gob38HyKWiRyKu3pG6EeWCbMt4fro4hMb7pDV15KA1HdHPPSx4L+kgh7rIiYVodSNzAq2KMT0oeywGzD2TgZW46sl+L+nWrFu/2d2IO/qzcvB0J2VQmgAJYx/dpF7k0M9tqYD8f8Q+CZ+i2zCa2PWfzQb0UAAbzKf+RSM5j/dtVo0tJqatPWuWewxctxZuDSl4evLtLecUOKJpIbPdlMF/Ix6CIbCL2WbDwyh8DIVT2NFkYr4mC51GCIH53Qkljv4UTEmJKQ4di9j29grvDZQbCRBvUc=
+deploy:
+  provider: releases
+  api_key:
+    secure: YHnzeu9Pwszv1sNRPfdyFLXBeSUtOgvrgrD9FUYqKRnOrTvEp+ng/NqVHilpgJ8siQGQ9xjzrsEuaLR/H+vezZzrk+s340C97Vyba6g4mUGy2qhxzooT9pS60VqkDICpblPwHZxGLW5gRwBK6EWon/nwZmaX0/C69cBKNH1YapaIFbMlDp2LdDIWJqsUzi7LDyGPZ41sfZYiI0dVQ1pniGa4G3JapPyTk3sy2exAzjFkCtJCXdM/zwZy97nhB5zUzazUWfgv1bmdEj6lwivMtu7yPwpeN/vcr6Yl8ke7DIKKqLEziMRhEZ/zdp/r2iCPGKpfuNvkjE3+TwTPSba0rbSP2jlW5lRLv5ZS4izKf0kzYskN2OOzEy1YA/gmc9S0Rn5kVLr72QOn/nOHGKVPj2x8QXA92ubIpAwgK8/K2nzl0d4bw/PlbTHEmjbXSeML/8brVzp3IZBjdHeg4OsRA6eWgqg0T7bi/6VoFsLDZXUXfSPMPrWAEtENl4snVlsTeCXGySbUtqVCXfSrB9Zn+s486pCjFliXprDCoWDsmgPmdFOxqYVqEeh6BPOTPp4yO2ykBpHfirJxtSDgjH1puGMI2ebQidFkD3eH37dFgl7JOG0ajMEg1zziMjBlTev7+0mhjUQSVbJQeCTBQnapioTZOqBGQvYMeso+pLD2veY=
+  file: ../*.deb
+  on:
+    repo: syndicut/bosun-deb
