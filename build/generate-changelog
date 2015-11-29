@@ -10,12 +10,16 @@
 from agithub import Github
 from distutils.version import LooseVersion
 from config import *
+import codecs
 import time
 import sys
 
 def indent(lines, amount, ch=' '):
     padding = amount * ch
     return padding + ('\n'+padding).join(lines.rstrip().split('\n'))
+
+def sanitize(string):
+    return "\n".join(string.replace(u'\xe2\x80\xa6', '...').splitlines()).strip('\n')
 
 DISTRIBUTION = 'unstable'
 URGENCY = 'low'
@@ -30,10 +34,11 @@ else:
     status_code, latest_release = bosun_repo().releases.latest.get()
     release_version = latest_release['tag_name']
 status_code, releases = bosun_repo().releases.get(header={'Time-Zone': 'Etc/UTC'})
-content = ''
+content = u''
 info = {}
 for release in releases:
     if LooseVersion(release['tag_name']) <= LooseVersion(release_version):
+        time.sleep(1)
         author_login = release['author']['login']
         status_code, author = gh.users[author_login].get()
         release_time = time.strptime(release['published_at'], '%Y-%m-%dT%H:%M:%SZ')
@@ -42,11 +47,11 @@ for release in releases:
         info['package_version'] = release['tag_name']
         info['distribution'] = DISTRIBUTION
         info['urgency'] = URGENCY
-        info['body'] = indent(release['body'], 2)
+        info['body'] = indent(sanitize(release['body']), 2)
         info['author_name'] = author['name']
         info['author_email'] = author['email']
         info['release_time'] = release_time_formatted
-        template = """%(package_name)s (%(package_version)s) %(distribution)s; urgency=%(urgency)s
+        template = u"""%(package_name)s (%(package_version)s) %(distribution)s; urgency=%(urgency)s
 
 %(body)s
 
@@ -55,6 +60,6 @@ for release in releases:
 """
         content = content + template % info
 
-with open('debian/changelog', 'w') as f:
-    f.write(content.encode('utf-8'))
+with codecs.open('debian/changelog', 'w', encoding='utf-8') as f:
+    f.write(content)
     f.flush()

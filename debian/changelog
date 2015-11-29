@@ -1,12 +1,11 @@
 bosun (0.4.0) unstable; urgency=low
 
-  
   ### bosun: ###
     -  InfluxDB query support [#1291](https://github.com/bosun-monitor/bosun/pull/1291)
     -  Concurrent checks [#1231](https://github.com/bosun-monitor/bosun/pull/1231)
     -  Better Error flow [#1301](https://github.com/bosun-monitor/bosun/pull/1301)
     -  Seperating core metric metadata into different lookup for performance [#1323](https://github.com/bosun-monitor/bosun/pull/1323)
-    -  Add last API route returns most recent datapoint for metriâ¦ [#1330](https://github.com/bosun-monitor/bosun/pull/1330)
+    -  Add last API route returns most recent datapoint for metri... [#1330](https://github.com/bosun-monitor/bosun/pull/1330)
     -  Remove metrics from the API host route [#1318](https://github.com/bosun-monitor/bosun/pull/1318)
     -  Don't return hosts from /api/host if older than 7 days [#1320](https://github.com/bosun-monitor/bosun/pull/1320)
     -  Don't let unknowns trigger until a full check interval after restorestate finishes. [#1313](https://github.com/bosun-monitor/bosun/pull/1313)
@@ -19,8 +18,8 @@ bosun (0.4.0) unstable; urgency=low
     -  Fix slowness loading dashboard. [#1170](https://github.com/bosun-monitor/bosun/pull/1170)
     -  Fixing rule link from dashboard. [#1169](https://github.com/bosun-monitor/bosun/pull/1169)
     -  recovering from panic in chart rendering. [#1237](https://github.com/bosun-monitor/bosun/pull/1237)
-    -  Add an API route to return all metrics and their associateâ¦ [#1247](https://github.com/bosun-monitor/bosun/pull/1247)
-    -  Add normalize switch to graph page to display series on 0-â¦ [#1257](https://github.com/bosun-monitor/bosun/pull/1257)
+    -  Add an API route to return all metrics and their associate... [#1247](https://github.com/bosun-monitor/bosun/pull/1247)
+    -  Add normalize switch to graph page to display series on 0-... [#1257](https://github.com/bosun-monitor/bosun/pull/1257)
     -  Sending less data to dashboard. Lazily loading templates [#1269](https://github.com/bosun-monitor/bosun/pull/1269)
     -  cCount func counts the number of adjacent changes in a series [#1268](https://github.com/bosun-monitor/bosun/pull/1268)
     -  Export time.ParseDuration as ParseDuration to templates [#1205](https://github.com/bosun-monitor/bosun/pull/1205)
@@ -28,7 +27,7 @@ bosun (0.4.0) unstable; urgency=low
     -  adding debug endpoint to view status of schedule lock. [#1220](https://github.com/bosun-monitor/bosun/pull/1220)
     -  capturing timings around template rendering. [#1196](https://github.com/bosun-monitor/bosun/pull/1196)
     -  Refactor filter expr func to also filter out zero valued results [#1206](https://github.com/bosun-monitor/bosun/pull/1206)
-    -  Only downsample OpenTSBD queries that don't have it specifâ¦ [#1201](https://github.com/bosun-monitor/bosun/pull/1201)
+    -  Only downsample OpenTSBD queries that don't have it specif... [#1201](https://github.com/bosun-monitor/bosun/pull/1201)
     -  Fix template functions to use the same time as the alert [#1199](https://github.com/bosun-monitor/bosun/pull/1199)
     -  making save rely on fewer goroutines needing to acquire the lock. [#1187](https://github.com/bosun-monitor/bosun/pull/1187)
     -  promote scalars to numberSets [#1137](https://github.com/bosun-monitor/bosun/pull/1137)
@@ -45,12 +44,12 @@ bosun (0.4.0) unstable; urgency=low
     -  send self metrics with tags from config [#1303](https://github.com/bosun-monitor/bosun/pull/1303)
     -  Propagate FullHost setting [#1296](https://github.com/bosun-monitor/bosun/pull/1296)
     -  github collector [#1281](https://github.com/bosun-monitor/bosun/pull/1281)
-    -  Add MTU, AdminStatus, and OperationStatus to SNMP intâ¦ [#1260](https://github.com/bosun-monitor/bosun/pull/1260)
+    -  Add MTU, AdminStatus, and OperationStatus to SNMP int... [#1260](https://github.com/bosun-monitor/bosun/pull/1260)
     -  RabbitMQ [#1202](https://github.com/bosun-monitor/bosun/pull/1202)
     -  Add metadata for SNMP network interface stats [#1251](https://github.com/bosun-monitor/bosun/pull/1251)
     -  Filter out elastic indices from monitoring via regexp [#1243](https://github.com/bosun-monitor/bosun/pull/1243)
     -  Identify the interface type via IF-MIB:ifType [#1242](https://github.com/bosun-monitor/bosun/pull/1242)
-    -  use dmidecode to get serialNumber and model metadata â¦ [#1223](https://github.com/bosun-monitor/bosun/pull/1223)
+    -  use dmidecode to get serialNumber and model metadata ... [#1223](https://github.com/bosun-monitor/bosun/pull/1223)
     -  Add additional Linux interfaces [#1124](https://github.com/bosun-monitor/bosun/pull/1124)
     -  riak allow custom URL [#1204](https://github.com/bosun-monitor/bosun/pull/1204)
     -  enable pprof = "ip:port" settings in TOML file [#1190](https://github.com/bosun-monitor/bosun/pull/1190)
@@ -88,7 +87,7 @@ bosun (0.4.0) unstable; urgency=low
     - Always refer to docker-server-ip in the same way [#1218](https://github.com/bosun-monitor/bosun/pull/1218)
     - a command line utility for silencing [#1152](https://github.com/bosun-monitor/bosun/pull/1152)
     - making save run on a fixed clock [#1192](https://github.com/bosun-monitor/bosun/pull/1192)
-    - Return a NaN value instead of an error when the result is of zero lenâ¦ [#1171](https://github.com/bosun-monitor/bosun/pull/1171)
+    - Return a NaN value instead of an error when the result is of zero len... [#1171](https://github.com/bosun-monitor/bosun/pull/1171)
     - Fixed a typo in haproxy metric description [#1166](https://github.com/bosun-monitor/bosun/pull/1166)
     - Fixed typo in configuration.md [#1162](https://github.com/bosun-monitor/bosun/pull/1162)
     - removing solaris stuff [#1155](https://github.com/bosun-monitor/bosun/pull/1155)
@@ -97,7 +96,6 @@ bosun (0.4.0) unstable; urgency=low
 
 bosun (0.3.0) unstable; urgency=low
 
-  
   ### bosun: ###
     -  improve graph tag display [#1145](https://github.com/bosun-monitor/bosun/pull/1145)
     -  implementing modulo operator % [#1154](https://github.com/bosun-monitor/bosun/pull/1154)
@@ -188,8 +186,6 @@ bosun (0.2.0) unstable; urgency=low
 
 bosun (0.1.0) unstable; urgency=low
 
-  
-  
   Our first versioned release. We will be following semver. This release contains breaking changes in scollector.
   
   ### bosun: ###
