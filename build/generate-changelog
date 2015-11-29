@@ -9,6 +9,7 @@
 
 from agithub import Github
 from distutils.version import LooseVersion
+from config import *
 import time
 import sys
 
@@ -18,8 +19,6 @@ def indent(lines, amount, ch=' '):
 
 DISTRIBUTION = 'unstable'
 URGENCY = 'low'
-BOSUN_ORG = 'bosun-monitor'
-BOSUN_REPO = 'bosun'
 
 def bosun_repo():
     return gh.repos[BOSUN_ORG][BOSUN_REPO]
@@ -30,16 +29,15 @@ if len(sys.argv) == 2:
 else:
     status_code, latest_release = bosun_repo().releases.latest.get()
     release_version = latest_release['tag_name']
-status_code, releases = bosun_repo().releases.get()
+status_code, releases = bosun_repo().releases.get(header={'Time-Zone': 'Etc/UTC'})
 content = ''
 info = {}
 for release in releases:
     if LooseVersion(release['tag_name']) <= LooseVersion(release_version):
         author_login = release['author']['login']
         status_code, author = gh.users[author_login].get()
-        local_tz = time.strftime("%z", time.localtime())
         release_time = time.strptime(release['published_at'], '%Y-%m-%dT%H:%M:%SZ')
-        release_time_formatted = time.strftime("%a, %d %b %Y %H:%M:%S {0}".format(local_tz), release_time)
+        release_time_formatted = time.strftime("%a, %d %b %Y %H:%M:%S +0000", release_time)
         info['package_name'] = 'bosun'
         info['package_version'] = release['tag_name']
         info['distribution'] = DISTRIBUTION

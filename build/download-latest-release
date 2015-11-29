@@ -8,6 +8,7 @@
 # build/generate-changelog <release-tag-name>
 
 from agithub import Github
+from config import *
 import urllib
 gh = Github()
 
@@ -19,7 +20,7 @@ with open('debian/changelog', 'r') as f:
 
 latest_release_tag = first_line.split(' ')[1].strip('()')
 print 'Searching for release with tag_name: {0}'.format(latest_release_tag)
-status_code, latest_release = gh.repos['bosun-monitor']['bosun'].releases.tags[latest_release_tag].get()
+status_code, latest_release = gh.repos[BOSUN_ORG][BOSUN_REPO].releases.tags[latest_release_tag].get()
 for asset in latest_release['assets']:
     if asset['name'] == SRC_FILENAME:
         print 'Downloading latest release from {0} to {1}'.format(asset['browser_download_url'], DEST_FILENAME)
